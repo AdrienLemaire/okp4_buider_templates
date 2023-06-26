@@ -27,7 +27,10 @@ true
 
 You can convert any address to any chain format:
 ```console
-$ query_stars_rules "{\"ask\": {\"query\": \"convert_address_to('cosmos1wy8ywt98sv5pmsg873rct4pxtw0ntxuwt3w29g', okp4, X).\"}}" | yq '.data.answer.results[0].substitutions[0].term.name'
+$ for chain in osmo juno okp4 stars; do query_stars_rules "{\"ask\": {\"query\": \"convert_address_to('cosmos1wy8ywt98sv5pmsg873rct4pxtw0ntxuwt3w29g', $chain, X).\"}}" | yq '.data.answer.results[0].substitutions[0].term.name'; done
 
+"osmo1wy8ywt98sv5pmsg873rct4pxtw0ntxuwr2a6n6"
+"juno1wy8ywt98sv5pmsg873rct4pxtw0ntxuward3z5"
 "okp41wy8ywt98sv5pmsg873rct4pxtw0ntxuwxdtzen"
+"stars1wy8ywt98sv5pmsg873rct4pxtw0ntxuwldehwe"
 ```
