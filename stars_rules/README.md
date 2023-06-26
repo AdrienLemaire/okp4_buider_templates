@@ -8,15 +8,6 @@ of stargase addresses.
 Create a law-stone instance with your version of the `gov.pl` file, and get its
 smart contract.
 
-```console
-$ okp4d query logic ask \
---node https://api.testnet.okp4.network:443/rpc \
-"bech32_address(-(Prefix, Words), 'cosmos1wy8ywt98sv5pmsg873rct4pxtw0ntxuwt3w29g'), bech32_address(-(stars, Words), StargazeAddr)." | yq '.answer.results[0].substitutions[] | select(.variable  | startswith("Star")) | {(.variable): .term.name }'
-{
-  "StargazeAddr": "stars1wy8ywt98sv5pmsg873rct4pxtw0ntxuwldehwe"
-}
-```
-
 ## Usage
 
 Using the example smart contract:
